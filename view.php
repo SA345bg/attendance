@@ -1,7 +1,7 @@
 <?php 
     $title = "View Record";
     require_once 'includes/header.php'; 
-    require_once 'db/connection.php';
+    require_once 'db/conn.php';
 
     // Get attendee by id
     /*
@@ -43,9 +43,8 @@
             </div>
         </div>
 
-        <br/>
-
         <div>
+            <br/>
             <a href="viewrecords.php" class="btn btn-info">Back to list</a>
             <a href="edit.php?id=<?php echo $result['attendee_id']; ?>" class="btn btn-warning">Edit</a>
             <a onclick="return confirm('Are you sure you want to delete this record?');" href="delete.php?id=<?php echo $result['attendee_id']; ?>" class="btn btn-danger">Delete</a>

@@ -6,12 +6,12 @@
         private $db;
 
         // Constructor to initialize private variable to the database connection
-        function __construct($connection) {
-            $this->db = $connection;
+        function __construct($conn) {
+            $this->db = $conn;
         }
         // NO ; after!!!
 
-        // Function which is waiting for to insert a new record from $_GET['...'] in success-page into attendee database
+        // Function which is waiting for to insert a new record from $_POST['...'] in success-page into attendee database
         // public = admin cam interact with users; private - only for admin CRUD-actions; parameters can be with different names from db-parameters, i. e. $fname, $lname, $dob, ...
         public function insertAttendees($fname, $lname, $dob, $specialty, $email, $contact) {
             try {

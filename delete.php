@@ -1,5 +1,6 @@
 <?php 
-    require_once 'db/connection.php';
+    require_once 'db/conn.php';
+    
     if(!$_GET['id']) {
         // echo 'error';
         include 'includes/errormessage.php';
@@ -12,7 +13,7 @@
 
         // Redirect to list 
         if($result == true) {
-            include 'includes/successmessage.php';
+            // include 'includes/successmessage.php';
             header("Location: viewrecords.php");
         } else {
             // echo 'error';

@@ -1,13 +1,14 @@
 <?php 
     $title = "Edit Record";
     require_once 'includes/header.php'; 
-    require_once 'db/connection.php';
+    require_once 'db/conn.php';
 
     $results = $crud->getSpecialties();
 
     if(!isset($_GET['id'])) {
         // echo 'error';
         include 'includes/errormessage.php';
+        // header("Location: viewrecords.php");
     } else {
         $id = $_GET['id'];
         $attendee = $crud->getAttendeeDetails($id);
@@ -18,7 +19,7 @@
 
         <h1 class="text-center">Edit Record</h1>
 
-        <form method="get" action="editget.php">
+        <form method="post" action="editpost.php">
             <input type="hidden" name="id" value="<?php echo $attendee['attendee_id'] ?>" />
             <div class="form-group">
                 <label for="firstname">First Name</label>
@@ -58,8 +59,8 @@
         </form>
     
     <?php } ?>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 <?php require_once 'includes/footer.php'; ?>
