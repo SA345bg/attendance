@@ -10,7 +10,7 @@
     $pass = '';
     $charset = 'utf8mb4';
 
-    /* 
+    /*
     // Remote Database connection
     $host = 'pdb51.zettahost.bg';
     $db = '3927471_attendance';

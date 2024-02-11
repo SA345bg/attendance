@@ -2,6 +2,10 @@
     $title = "User Login";
     require_once 'includes/header.php'; 
     require_once 'db/conn.php';
+    
+    require_once 'db/user.php';
+    $user = new user($pdo);
+
 
     // If data is submitted via POST-requests, than
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,17 +16,18 @@
         $result = $user->getUser($username, $new_password);
         if(!$result) {
             echo '<div class="alert alert-danger">Username or Password is Incorrect! Please try again.</div>';
-        } else {
+        }else {
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $result['id'];
             header("Location: viewrecords.php");
         }
-    };
+    }
 ?>
 
 <h1 class="text-center"><?php echo $title; ?></h1>
 
 <!-- Check is data submitted via POST-request -->
+<!-- echo htmlentities($_SERVER['PHP_SELF']) method="post"> -> reload the same page and do the posting of data -->
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
     <table class="table table-sm">
         <tr>
